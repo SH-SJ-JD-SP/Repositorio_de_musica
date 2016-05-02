@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header" style="width: 10%;">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">AlCompas<span class="caret"></span></a>  
+          <ul class="dropdown-menu">
+            <li> <%= link_to "Inicio", root_path %> </li>
+            <li> <%= link_to "Acerca de", welcome_acercade_path %> </li>
+            <li> <%= link_to "Contáctenos ", welcome_contactenos_path %> </li>
+            <li role="separator" class="divider"></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+            <li><%= link_to "Registrarse", new_user_registration_path %></li>
+            <%end%>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Buscar canci&oacuten</a></li>
+            <li><a href="#">Canciones m&aacutes populares</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="width: 90%;">
+      <ul class="nav navbar-nav">
+        <li > <%= link_to "Inicio", root_path %><span class="sr-only">(current)</span> </li>
+        <li> <%= link_to "Acerca de", welcome_acercade_path %> </li>
+        <li> <%= link_to "Contáctenos ", welcome_contactenos_path %> </li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li class="social pull-right"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li class="social pull-right"><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        <li class="social pull-right"><%= link_to "Registrarse", new_user_registration_path %></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>

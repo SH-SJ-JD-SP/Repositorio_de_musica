@@ -1,4 +1,5 @@
 class RegistrationController < Devise::RegistrationsController
+
 	def new
 		super
 	end
@@ -8,6 +9,6 @@ class RegistrationController < Devise::RegistrationsController
 	end
 
 	def update
-		
+		super
 	end
 end

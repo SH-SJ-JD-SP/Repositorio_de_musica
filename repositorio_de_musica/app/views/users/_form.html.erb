@@ -1,0 +1,45 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email, "Correo electrónico* "%>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nombres, "Nombres* "%>
+    <%= f.text_field :nombres, autocomplete: "on"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :apellidos, "Apellidos* "%>
+    <%= f.text_field :apellidos, autocomplete: "on"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :apodo, "Apodo* "%>
+    <%= f.text_field :apodo, autocomplete: "on"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "Contraseña* "%>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmar contraseña* "%>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

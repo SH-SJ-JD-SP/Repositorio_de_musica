@@ -1,0 +1,8 @@
+Repositorio de Letras y Acordes es una aplicacion que almacena letras de 
+canciones y acordes de artistas tanto conocidos como ineditos, por lo tanto los
+usuarios mas caracteristicos son las personas que tienen una vocacion de musical 
+(guitarristas, cantantes), pueden ser personas profesionales o en etapa de 
+aprendizaje en el ambito musical; esta una aplicacion orientada hacia la juventud 
+con edades entre 15 y 35 años, aunque hay una minoria de personas de edades 
+mayores al rango establecido que tambien tienen una vocacion musical y pueden usarla 
+normalmente.

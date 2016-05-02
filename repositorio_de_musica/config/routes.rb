@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {registrations: 'registration'}
+  devise_for :users, controllers: {registrations: 'registration', sessions: 'session'}
+  scope "/users" do
+    resources :users, path: "admin"
+  end
 
   get 'welcome/index'
 
@@ -9,6 +12,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  get 'welcome/acercade'
+  get 'welcome/contactenos'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

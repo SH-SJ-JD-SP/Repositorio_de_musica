@@ -1,9 +1,14 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="text-center">
+  <h1>AlCompas</h1>
+  <p>Lo mejor en letras y acordes para ti</p>
+</div>
 
-<% if user_signed_in? %>
-	<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-<%else%>
-	<%= link_to "Iniciar sesión", new_user_session_path %>
-	<%= link_to "Registrarse", new_user_registration_path %>
-<%end%>
+<h1>Las m&aacutes visitadas.</h1>
+<div class="row">
+	<% for i in (1..10)%>
+	<div class="col-sm-4">
+	  <p><strong>N&uacutemero <%= i %></strong></p><br>
+	  <img src="../app/assets/images/bandmember.jpg" alt="Random Name" width="150" height="150" class="img-circle person">
+	</div>
+	<%end%>
+</div>

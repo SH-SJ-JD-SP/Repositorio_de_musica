@@ -14,6 +14,17 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'paperclip'
+gem 'pundit'
+
+=begin
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
+
+=end
+
+gem 'autoprefixer-rails'
 
 gem 'bootstrap-sass'
 # Use jquery as the JavaScript library
