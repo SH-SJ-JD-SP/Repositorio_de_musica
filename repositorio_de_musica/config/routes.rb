@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registration', sessions: 'session'}
+  
   scope "/users" do
     resources :users, path: "admin"
   end
-
-  get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

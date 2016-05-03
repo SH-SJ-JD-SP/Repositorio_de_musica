@@ -7,7 +7,6 @@
       <th style="text-align: center">Nombres</th>
       <th style="text-align: center">Apellidos</th>
       <th style="text-align: center">Apodo</th>
-      <th style="text-align: center">Rol</th>
       <th style="text-align: center">Imagen</th>
       <th colspan="3" style="text-align: center"> Acciones </th>
     </tr>
@@ -20,7 +19,6 @@
           <td><%= user.nombres %></td>
           <td><%= user.apellidos %></td>
           <td><%= user.apodo %></td>
-          <td><%= user.role %></td>
           <td><%= image_tag user.imagenPerfil.url(:thumb) %></td>
           <td><%= link_to 'Mostrar', user %></td>
           <td><%= link_to 'Editar', edit_user_path(user) %></td>
@@ -32,4 +30,4 @@
 </table>
 
 <br>
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Agregar usuario nuevo', new_user_path %>

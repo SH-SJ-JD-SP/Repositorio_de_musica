@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.order(:nombres)
     authorize @users
   end
 
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    authorize @user
     #Usuarios normales no deberían ver la información de otros usuarios
   end
 
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if user_params[:password].blank? && user_params[:password_confirmation].blank?
+    if user_params[:password].blank?
       user_params.delete(:password)
       user_params.delete(:password_confirmation)
     end
@@ -61,12 +62,12 @@ class UsersController < ApplicationController
                                     @user.update_without_password(user_params)
                                   end
     respond_to do |format|
-      if @user.update(user_params)
+      if actualizacion_satisfactoria
         format.html { redirect_to @user, notice: 'El usuario ha sido actualizado con éxito.' }
-        format.json { render :show, status: :ok, location: @user }
+        #format.json { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :edit, notice: 'El usuario no se ha podido actualizar correctamente' }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

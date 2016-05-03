@@ -19,6 +19,10 @@
   <strong>Apodo:</strong>
   <%= @user.apodo %>
 </p>
+<p>
+  <strong>Imagen de perfil:</strong>
+  <%= image_tag @user.imagenPerfil.url(:thumb) %>
+</p>
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
 <%= link_to 'Regresar', users_path %>

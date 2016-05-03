@@ -11,6 +11,9 @@
             <li role="separator" class="divider"></li>
             <% if user_signed_in? %>
               <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+              <% if current_user.role == "admin" %>
+                <li> <%= link_to "Gestión de usuarios", users_path %> </li>
+              <%end%>
             <% else %>
               <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
             <li><%= link_to "Registrarse", new_user_registration_path %></li>
@@ -26,6 +29,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="width: 90%;">
       <ul class="nav navbar-nav">
         <li > <%= link_to "Inicio", root_path %><span class="sr-only">(current)</span> </li>
+        <%if user_signed_in? %>
+          <% if current_user.role == "admin" %>
+          <li> <%= link_to "Gestión de usuarios", users_path %> </li>
+          <%end%>
+        <%end%>
         <li> <%= link_to "Acerca de", welcome_acercade_path %> </li>
         <li> <%= link_to "Contáctenos ", welcome_contactenos_path %> </li> 
       </ul>
