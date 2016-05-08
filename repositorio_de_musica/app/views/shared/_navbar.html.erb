@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
     <div class="navbar-header" style="width: 10%;">
     <ul class="nav navbar-nav">
       <li class="dropdown">
@@ -19,7 +19,7 @@
             <li><%= link_to "Registrarse", new_user_registration_path %></li>
             <%end%>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Buscar canci&oacuten</a></li>
+            <li><%= link_to "Buscan canción", welcome_resultadoBusqueda_path %></li>
             <li><a href="#">Canciones m&aacutes populares</a></li>
           </ul>
         </li>
@@ -35,7 +35,7 @@
           <%end%>
         <%end%>
         <li> <%= link_to "Acerca de", welcome_acercade_path %> </li>
-        <li> <%= link_to "Contáctenos ", welcome_contactenos_path %> </li> 
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

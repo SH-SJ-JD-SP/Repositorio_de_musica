@@ -7,8 +7,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:nombres)
-    authorize @users
+    #Verifica si el parametro "buscar_usuario" contiene algo
+    if params[:buscar_usuario].present?
+      #Esta línea hace lo siguiente:
+      # => SELECT * FROM users where nombres like (contenido de buscar_usuario) or apellidos like...
+      @users = User.paginate(page: params[:page],per_page:4).where("nombres LIKE '#{params[:buscar_usuario]}%' or apellidos LIKE '#{params[:buscar_usuario]}%' or apodo LIKE '#{params[:buscar_usuario]}%'")
+      authorize @users
+    else
+      #Sino lista todos los usuarios
+      @users = User.paginate(page: params[:page],per_page:4).all
+      authorize @users
+    end
   end
 
   # GET /users/1
@@ -35,7 +44,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'EL usuario ha sido creato con éxito.' }

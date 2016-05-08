@@ -1,10 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-  
-
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: blue;
+}
+#letra{
+  height: 80%;
+}
   #search{
-    width: 100%;
+    width: 20%;
   }
  
   .person {
@@ -41,6 +47,26 @@
   margin-left: auto;
   margin-right: auto;
 }
-body{
-  padding-top: 70px;
-}
+
+
+.jumbotron {
+      background-color: #2E4B7F;
+      color: #fff;
+      padding: 100px 25px;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo {
+      font-size: 200px;
+      color: #2E4B7F;
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+  }

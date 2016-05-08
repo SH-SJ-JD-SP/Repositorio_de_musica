@@ -1,17 +1,41 @@
-<div class="text-center">
-  <h1>AlCompas</h1>
-  <p>Lo mejor en letras y acordes para ti</p>
+<div id="inicio" class="jumbotron text-center">
+  <h1 >AlCompas</h1> 
+  <p>La mejor alternativa para mirar la letra y los acordes de tus canciones favoritas</p> 
+  <form class="form-inline">
+    <input type="text" class="form-control" size="50" placeholder="Buscar canción..." required>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+  </form>
 </div>
 
-<h1>Las más visitadas.</h1>
-<div class="row">
-	<% for i in (1..10)%>
-	<div class="col-sm-4">
-	  <p><strong>Número <%= i %></strong></p><br>
-	  <%= image_tag("bandmember.jpg", alt:"Random Name", width:"150", height:"150") %>
-	  <!--
-	  <img src="../app/assets/images/bandmember.jpg" alt="Random Name" width="150" height="150" class="img-circle person">
-	-->
-	</div>
-	<%end%>
+<!-- Container (About Section) -->
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-sm-4">
+      <span class="glyphicon glyphicon-star logo"></span>
+      
+    </div>
+    <div class="col-sm-8">
+      <h2>Canciones m&aacutes populares</h2>
+      <h4>Top 10</h4>      
+      <p>Las 10 canciones m&aacutes buscadas por nuestros usuarios.</p>
+      <button class="btn btn-default btn-lg">Ver m&aacutes</button>
+    </div>
+    
+  </div>
 </div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    
+    <div class="col-sm-8">
+      <h2>Cont&aacutectanos</h2>
+      <h4>Ponte en contacto con nosotros para resolverte cualquier duda o informaci&oacuten sobre AlCompas</h4>      
+      <p>Tu opini&oacuten es importante para nosotros, con ella podemos mejorar para t&iacute</p>
+      <%= link_to "Enviar mensaje", welcome_contactenos_path , class: "btn btn-default btn-lg"%>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-user logo"></span>
+    </div>
+  </div>
+</div>
+

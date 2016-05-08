@@ -1,20 +1,41 @@
-<h1>Usuarios</h1>
+<%= render 'shared/search'%>
+<h1 class="text-center">Gesti&oacuten de usuarios</h1>
+<form  class="form-inline" >
+  
+</form>
+</br>
 
-<table>
+<%= form_tag users_path, method: :get do %>
+ <div class="form-group input-group col-md-4 " >
+    <%= text_field_tag :buscar_usuario,params[:buscar_usuario],class:'form-control',placeholder:"Buscar usuario...", autocomplete: "on" %>
+        <span class="input-group-btn">
+          <%= submit_tag "Lupa", class:"btn btn-default" %>
+        </span>
+        <!--
+      <span class="input-group-btn">
+        <a href="#" class="btn btn-default btn-md" ><span class="glyphicon glyphicon-search"></span> </a>
+      </span>
+    -->
+ </div>
+ <%end%>
+</br>
+<div class="table-responsive">
+<table class="table table-striped ">
   <thead>
     <tr>
-      <th style="text-align: center">Email</th>
-      <th style="text-align: center">Nombres</th>
-      <th style="text-align: center">Apellidos</th>
-      <th style="text-align: center">Apodo</th>
-      <th style="text-align: center">Imagen</th>
+      <th >Email</th>
+      <th >Nombres</th>
+      <th >Apellidos</th>
+      <th >Apodo</th>
+      <th >Imagen</th>
       <th colspan="3" style="text-align: center"> Acciones </th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.each do |user| %>    
       <% if user.role != 'admin' %>
+        <tr>
           <td><%= user.email %></td>
           <td><%= user.nombres %></td>
           <td><%= user.apellidos %></td>
@@ -28,6 +49,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to 'Agregar usuario nuevo', new_user_path %>
+<%= link_to 'Agregar usuario nuevo' , new_user_path ,class:"btn btn-default btn-md"%>
+</div>
+<div ><%= will_paginate @users, renderer: BootstrapPagination::Rails %></div>

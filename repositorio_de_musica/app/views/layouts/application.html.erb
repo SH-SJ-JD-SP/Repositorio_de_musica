@@ -5,27 +5,31 @@
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   	<%= csrf_meta_tags %>
+
 	</head>
 	<body>
-		<%= render 'shared/navbar'%>
+		<br>
+		<br>
+		<br>
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
-		<div class="container-fluid">
+		<%= render 'shared/navbar'%>
+		
+		<!--<div class="container-fluid">
   		<div class="row content">
 			<div class="col-sm-12" id="contenido">
 			
 				<div class="well">
-					<%= render 'shared/search'%>
+					
 				</div>
-				<div class="well">
+				<div class="well">-->
 					<%= yield %>
-				</div>
+				<!--</div>
 			</div>
 		
+		</div>-->
 		</div>
-		</div>
-	<footer class="container-fluid">
-		<p>Universidad del Cauca - Facultad de Ingenier&iacutea Electr&oacutenica y Telecomunicaciones - Ingenier&iacutea de Sistemas</p>
-	</footer>
+		
 	</body>
+<%= render 'shared/footer'%>
 </html>

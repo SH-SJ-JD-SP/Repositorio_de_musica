@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   get 'welcome/acercade'
   get 'welcome/contactenos'
-
+  get 'welcome/resultadoBusqueda'
+  get 'songs/verCancion'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

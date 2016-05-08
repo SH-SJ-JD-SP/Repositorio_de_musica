@@ -1,3 +1,7 @@
+
+<p class="text-center">*Campos obligatorios</p>
+<br>
+<div class="form-horizontal">
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -9,37 +13,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email, "Correo electrónico* "%>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+   <div class="form-group">
+      <%= f.label :email, "Correo electrónico* ", class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
+      <%= f.email_field :email, autofocus: true, placeholder:"Ej: pepitopeerez@ejemplo.com", class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :nombres, "Nombres* ", placeholder:"", class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
+        <%= f.text_field :nombres, autocomplete: "on", placeholder:"Ej: Pepe", class:"form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :apellidos, "Apellidos* ", class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
+        <%= f.text_field :apellidos, autocomplete: "on", placeholder:"Ej: perez", class:"form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+    <%= f.label :apodo, "Apodo* ", class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
+        <%= f.text_field :apodo, autocomplete: "on", placeholder:"Ej: pepitope", class:"form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "Contraseña* ",class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
+        <%= f.password_field :password, autocomplete: "off",class:"form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirmar contraseña* ",class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control"%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :nombres, "Nombres* "%>
-    <%= f.text_field :nombres, autocomplete: "on"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :apellidos, "Apellidos* "%>
-    <%= f.text_field :apellidos, autocomplete: "on"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :apodo, "Apodo* "%>
-    <%= f.text_field :apodo, autocomplete: "on"%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "Contraseña* "%>
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmar contraseña* "%>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="form-actions">
+      <%= f.submit "Aceptar", class:"btn btn-default" %>
+    </div>
 <% end %>
+</div>

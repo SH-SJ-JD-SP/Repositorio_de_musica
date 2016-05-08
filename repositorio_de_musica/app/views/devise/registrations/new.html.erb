@@ -1,57 +1,79 @@
+<%= render 'shared/search'%>
 <%= devise_error_messages! %>
-<h1 class="text-center">Regístrate</h1>
- <p class="text-center">*Campos obligatorios</p>
+  <h1 class="text-center">Reg&iacutestrate</h1>
+ <p class="text-center">LLena todos los campos obligatorios (*)</p>
 <br>
 <div class="form-horizontal">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <div class="form-group">
       <%= f.label :email, "Correo electrónico* ", class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
+      <!-- <label class="control-label col-sm-3" for="txtCorreo">*Correo electr&oacutenico</label>
+    -->
+      <div class="col-sm-6">
       <%= f.email_field :email, autofocus: true, placeholder:"Ej: pepitopeerez@ejemplo.com", class:"form-control" %>
+        <!-- <input type="email" class="form-control" id="txtCorreo" name="txtCorreo" placeholder="Ej: pepitopeerez@ejemplo.com"> 
+      -->
       </div>
     </div>
     <div class="form-group">
+      <!-- <label class="control-label col-sm-3" for="txtNombres">*Nombres:</label>
+    -->
       <%= f.label :nombres, "Nombres* ", placeholder:"", class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
+      <div class="col-sm-6">
         <%= f.text_field :nombres, autocomplete: "on", placeholder:"Ej: Pepe", class:"form-control"%>
+        <!-- <input type="text" class="form-control" id="txtNombres" name="txtNombres" placeholder="Ej: Pepe">
+      -->
       </div>
     </div>
     <div class="form-group">
       <%= f.label :apellidos, "Apellidos* ", class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
+      <!-- <label class="control-label col-sm-3" for="txtApellidos">*Apellidos:</label>
+    -->
+      <div class="col-sm-6">
         <%= f.text_field :apellidos, autocomplete: "on", placeholder:"Ej: perez", class:"form-control"%>
+        <!-- <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" placeholder="Ej: perez">
+      -->
       </div>
     </div>
     <div class="form-group">
-    <%= f.label :apodo, "Apodo* ", class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
+      <!-- <label class="control-label col-sm-3" for="txtApodo">*Apodo:</label>
+    --><%= f.label :apodo, "Apodo* ", class:"control-label col-sm-3"%>
+      <div class="col-sm-6">
         <%= f.text_field :apodo, autocomplete: "on", placeholder:"Ej: pepitope", class:"form-control"%>
+        <!-- <input type="text" class="form-control" id="txtApodo" name="txtApodo" placeholder="Ej: pepitope">
+      -->
       </div>
     </div>
     <div class="form-group">
       <%= f.label :password, "Contraseña* ",class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
+      <!-- <label class="control-label col-sm-3" for="txtPass">*Contraseña:</label>
+    -->
+      <div class="col-sm-6">
         <%= f.password_field :password, autocomplete: "off",class:"form-control"%>
+        <!-- <input type="password" class="form-control" id="txtPass" name="txtPass" placeholder="Escribe la contraseña">
+      -->
       </div>
     </div>
     <div class="form-group">
       <%= f.label :password_confirmation, "Confirmar contraseña* ",class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
+      <!-- <label class="control-label col-sm-3" for="txtRepPass">*Repetir contraseña:</label>
+    -->
+      <div class="col-sm-6">
         <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control"%>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :imagenPerfil, "Imagen de perfil ",class:"control-label col-sm-3"%>
-      <div class="col-sm-8">
-        <%= f.file_field :imagenPerfil %>
+       <!-- <input type="password" class="form-control" id="txtRepPass" name="txtRepPass"placeholder="Repite la contraseña">
+     -->
       </div>
     </div>
     <div class="form-actions">
-      <%= f.submit "Regístrame", class:"btn btn-default" %>
+      <%= f.submit "Aceptar", class:"btn btn-default" %>
     </div>
+    <!--<div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox"> Remember me</label>
+        </div>
+      </div>
+    </div>-->
 <%end%>
-<div class="form-group text-center">
-    <%= render "devise/shared/links" %>
-  </div>
 </div>
