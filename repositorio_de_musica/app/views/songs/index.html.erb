@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center">Lista de canciones</h1>
+<%= form_tag songs_path, method: :get do %>
+ <div class="form-group input-group col-md-4 " >
+    <%= text_field_tag :buscar_cancion,params[:buscar_cancion],class:'form-control',placeholder:"Buscar cancion...", autocomplete: "on" %>
+        <span class="input-group-btn">
+          <%= submit_tag "Lupa", class:"btn btn-default" %>
+        </span>
+    
+ </div>
+ <%end%>
+ <br>
+ <%= link_to 'Agregar canción', new_song_path, class:"btn btn-default" %><br>
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th>Album</th>
+      <th>Año</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.titulo%></td>
+        <td><%= song.autor%></td>
+        <td><%= song.album%></td>
+        <td><%= song.anio_creacion%></td>
+        <td><%= link_to 'Mostrar ', song %></td>
+        <td><%= link_to 'Editar ', edit_song_path(song) %></td>
+        <td><%= link_to 'Eliminar', song, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+

@@ -25,4 +25,7 @@ Chord.create(nombre_acorde:"La")
 Chord.create(nombre_acorde:"Sol")
 Chord.create(nombre_acorde:"La")
 Chord.create(nombre_acorde:"Si")
+
+Song.create(titulo: "bohemian rapsody", autor: "Freddie Mercury", album: "A nigth of opera",anio_creacion: 1975, letra: "esta es la letra dela cancion",genre_id: 1,tuning_id: 1,url_video:"vsl3gBVO2k4")
+
 =end

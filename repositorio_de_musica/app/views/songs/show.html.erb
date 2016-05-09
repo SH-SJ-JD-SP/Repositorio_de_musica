@@ -1,0 +1,101 @@
+<%= render 'shared/search'%>
+
+<p id="notice"><%= notice %></p>
+
+<% if current_user == nil %>
+	<p>a</p>
+<%end%>
+<h1 class="text-center"><%= @song.titulo.capitalize %></h1>
+<div class="row content">
+	<div class="col-sm-2 sidenav">
+      
+    </div>
+    <div class="col-sm-8 text-left"> 
+    	<div class="row content">
+    		  <div class="col-sm-6 text-left"> 
+    		  <br>
+    		  <br>
+			      <h2><strong>Autor:</strong> <%= @song.autor%></h2>
+			      <% Genre.joins(:songs).where("genres.id=#{@song.genre_id}").each do |genre|%>
+			      <h2><strong>Genero:</strong> <%= genre.nombre%></h2>
+			      <%end%>
+			      <h2><strong>Album:</strong> <%= @song.album%></h2>
+			      <h2><strong>Año:</strong> <%= @song.anio_creacion%></h2>
+		      </div>
+		      <div class="col-sm-6 text-left"> 
+			     <br>
+				 <div class="embed-responsive embed-responsive-4by3"> 
+				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= @song.url_video%>" frameborder="0" allowfullscreen></iframe>
+				</div>
+		      </div>
+        </div>
+        <br>
+        <br>
+        <div class="row content">
+        	  <div class="panel panel-primary">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading">Acordes</div>
+				  <div class="panel-body">
+				    <div class="container-fluid text-center bg-grey">
+					  
+					  <div class="row text-center">
+					  	<h2>Afinaci&oacuten:</h2>
+					  	<% Tuning.joins(:songs).where("tunings.id=#{@song.tuning_id}").each do |t|%>
+			      		<p> <%= t.nombre_afinacion%> : <strong><%= t.descripcion%></strong></p>
+			      		<%end%>
+					    <div class="col-sm-3">
+					      <div class="thumbnail">
+					        <img src="bandmember.jpg" alt="Do">
+					        <p><strong>Do</strong></p>
+					        <p>(C)</p>
+					      </div>
+					    </div>
+					    <div class="col-sm-3">
+					      <div class="thumbnail">
+					        <img src="bandmember.jpg" alt="Re">
+					        <p><strong>Re</strong></p>
+					        <p>(D)</p>
+					      </div>
+					    </div>
+					    <div class="col-sm-3">
+					      <div class="thumbnail">
+					        <img src="bandmember.jpg" alt="Do">
+					        <p><strong>Do</strong></p>
+					        <p>(C)</p>
+					      </div>
+					    </div>
+					    <div class="col-sm-3">
+					      <div class="thumbnail">
+					        <img src="bandmember.jpg" alt="Re">
+					        <p><strong>Re</strong></p>
+					        <p>(D)</p>
+					      </div>
+					    </div>
+					</div>
+				 </div>
+        	</div>
+        	</div>
+        </div>
+        <div class="row content">
+        	  <div class="panel panel-primary">
+				  <!-- Default panel contents -->
+				  <div class="panel-heading">Letra</div>
+				  <div class="panel-body">
+				     <textarea class="form-control" id="letra" name="letra" placeholder="Escribe un mensaje" rows="100">
+				     	<%= @song.letra%>
+				     </textarea>
+				 </div>
+        	 </div>
+        </div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      
+    </div>
+</div>
+
+<% if user_signed_in? %>
+	<% if current_user.role == "normal_user" %>
+		<%= link_to 'Edit', edit_song_path(@song) %> |
+		<%= link_to 'Back', songs_path %>
+	<%end%>
+<%end%>

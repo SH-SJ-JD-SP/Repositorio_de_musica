@@ -1,15 +1,15 @@
 <%= render 'shared/search'%>
 <h1 class="text-center">Gesti&oacuten de usuarios</h1>
-<form  class="form-inline" >
-  
-</form>
+
 </br>
 
 <%= form_tag users_path, method: :get do %>
  <div class="form-group input-group col-md-4 " >
     <%= text_field_tag :buscar_usuario,params[:buscar_usuario],class:'form-control',placeholder:"Buscar usuario...", autocomplete: "on" %>
         <span class="input-group-btn">
-          <%= submit_tag "Lupa", class:"btn btn-default" %>
+          <%= button_tag( class:"btn btn-default") do %>
+            <span class='glyphicon glyphicon-search'></span>
+          <% end %> 
         </span>
         <!--
       <span class="input-group-btn">
@@ -49,6 +49,7 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Agregar usuario nuevo' , new_user_path ,class:"btn btn-default btn-md"%>
+
 </div>
+<%= link_to 'Agregar usuario nuevo' , new_user_path ,class:"btn btn-default btn-md"%>
 <div ><%= will_paginate @users, renderer: BootstrapPagination::Rails %></div>

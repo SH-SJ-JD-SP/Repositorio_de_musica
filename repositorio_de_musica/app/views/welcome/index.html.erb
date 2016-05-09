@@ -1,10 +1,15 @@
 <div id="inicio" class="jumbotron text-center">
   <h1 >AlCompas</h1> 
   <p>La mejor alternativa para mirar la letra y los acordes de tus canciones favoritas</p> 
-  <form class="form-inline">
-    <input type="text" class="form-control" size="50" placeholder="Buscar canción..." required>
-    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-  </form>
+
+  <%= form_tag songs_resultados_path, method: :get, class:"form-inline" do %>
+
+    <%= text_field_tag :buscar_cancion,params[:buscar_cancion],class:'form-control',placeholder:"Buscar cancion...", autocomplete: "on", size:50 %>
+
+      <%= button_tag( class:"btn btn-default") do %>
+        <span class='glyphicon glyphicon-search'></span>
+      <% end %> 
+  <%end%>
 </div>
 
 <!-- Container (About Section) -->
@@ -18,6 +23,9 @@
       <h2>Canciones m&aacutes populares</h2>
       <h4>Top 10</h4>      
       <p>Las 10 canciones m&aacutes buscadas por nuestros usuarios.</p>
+      <% @songs.each do |s| %>
+        <p> <%= link_to s.titulo, s %> </p>
+      <%end%>
       <button class="btn btn-default btn-lg">Ver m&aacutes</button>
     </div>
     

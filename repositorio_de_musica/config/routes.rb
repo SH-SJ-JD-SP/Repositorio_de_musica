@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   scope "/users" do
     resources :users, path: "admin"
   end
-
+  resources :songs
+  get 'songs/resultados', path: "resultados"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
   get 'welcome/acercade'
   get 'welcome/contactenos'
   get 'welcome/resultadoBusqueda'
-  get 'songs/verCancion'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

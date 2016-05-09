@@ -17,6 +17,7 @@ gem 'paperclip'
 gem 'pundit'
 
 gem 'will_paginate-bootstrap'
+
 =begin
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

@@ -1,0 +1,13 @@
+<%= render 'shared/search'%>
+<h1 class="text-center">Resultados de la b&uacutesqueda</h1>
+<% if params[:buscar_cancion].blank? %>
+	<p>Se encontraron <%= @songs.length %> resultados </p>
+	<% @songs.each do |s| %>
+		<%= link_to s.id, s %>
+	<%end%>
+<% else %>
+	<p>Se encontraron <strong><%= @songs.length %></strong> resultados para "<strong><%= params[:buscar_cancion] %></strong>"</p>
+	<% @songs.each do |s| %>
+		<%= link_to s.id, s %>
+	<%end%>
+<%end%>
